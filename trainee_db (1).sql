@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Oct 14, 2025 at 05:37 PM
+-- Generation Time: Oct 22, 2025 at 09:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,6 +40,28 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `sync_tutor_identity` ()   BEGIN
 END$$
 
 DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_password_resets`
+--
+
+CREATE TABLE `admin_password_resets` (
+  `id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `reset_by` int(11) NOT NULL,
+  `reset_at` datetime DEFAULT current_timestamp(),
+  `ip_address` varchar(45) DEFAULT NULL,
+  `reason` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_password_resets`
+--
+
+INSERT INTO `admin_password_resets` (`id`, `staff_id`, `reset_by`, `reset_at`, `ip_address`, `reason`) VALUES
+(1, 9, 1, '2025-10-15 15:13:03', '::1', 'Manual reset via admin panel');
 
 -- --------------------------------------------------------
 
@@ -511,7 +533,108 @@ INSERT INTO `audit_log` (`log_id`, `user_id`, `role`, `action_type`, `table_name
 (290, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-10 18:40:40', NULL, NULL, NULL),
 (291, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-11 12:13:53', NULL, NULL, NULL),
 (292, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-14 14:39:23', NULL, NULL, NULL),
-(293, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-14 14:41:01', NULL, NULL, NULL);
+(293, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-14 14:41:01', NULL, NULL, NULL),
+(294, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-14 17:50:02', NULL, NULL, NULL),
+(295, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 11:22:44', NULL, NULL, NULL),
+(296, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 13:45:07', NULL, NULL, NULL),
+(297, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-15 13:46:27', NULL, NULL, 'logout'),
+(298, NULL, NULL, 'login_failed', NULL, NULL, 'Failed login attempt for pavlos@terapia.co.uk', '::1', '2025-10-15 13:46:45', NULL, NULL, NULL),
+(299, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 13:46:50', NULL, NULL, NULL),
+(300, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 14:16:47', NULL, NULL, NULL),
+(301, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-15 14:28:40', NULL, NULL, 'logout'),
+(302, 13, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 14:28:50', NULL, NULL, NULL),
+(303, 13, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-15 14:30:40', NULL, NULL, 'logout'),
+(304, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 14:30:46', NULL, NULL, NULL),
+(305, 13, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 14:35:27', NULL, NULL, NULL),
+(306, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-15 14:45:00', NULL, NULL, 'logout'),
+(307, 9, 'staff', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 14:45:06', NULL, NULL, NULL),
+(308, 9, 'staff', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-15 14:45:08', NULL, NULL, 'logout'),
+(309, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 14:45:14', NULL, NULL, NULL),
+(310, 1, 'superuser', 'password_reset', 'staff', 9, 'Password reset by admin', '::1', '2025-10-15 14:51:36', NULL, 9, 'update'),
+(311, 1, 'superuser', 'password_reset', 'staff', 9, 'Password reset by admin', '::1', '2025-10-15 15:00:33', NULL, 9, 'update'),
+(312, 1, 'superuser', 'password_reset', 'staff', 9, 'Password reset by admin', '::1', '2025-10-15 15:13:03', NULL, 9, 'update'),
+(313, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 15:55:44', NULL, NULL, NULL),
+(314, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-15 19:06:01', NULL, NULL, NULL),
+(315, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-16 03:19:55', NULL, NULL, NULL),
+(316, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-16 10:36:18', NULL, NULL, NULL),
+(317, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-16 10:36:35', NULL, NULL, 'logout'),
+(318, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-16 19:51:19', NULL, NULL, NULL),
+(319, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-16 19:51:24', NULL, NULL, 'logout'),
+(320, 1, 'public', 'password_reset', 'users', 1, 'Password reset via token', '::1', '2025-10-17 13:13:00', NULL, NULL, 'update'),
+(321, 1, 'public', 'password_reset', 'users', 1, 'Password reset via token', '::1', '2025-10-17 13:13:47', NULL, NULL, 'update'),
+(322, NULL, NULL, 'login_failed', NULL, NULL, 'Failed login attempt for alex@terapia.co.uk', '::1', '2025-10-17 13:14:10', NULL, NULL, NULL),
+(323, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 13:14:19', NULL, NULL, NULL),
+(324, 1, 'public', 'password_reset', 'users', 1, 'Password reset via token', '::1', '2025-10-17 13:27:25', NULL, NULL, 'update'),
+(325, NULL, NULL, 'login_failed', NULL, NULL, 'Failed login attempt for alex@terapia.co.uk', '::1', '2025-10-17 13:27:42', NULL, NULL, NULL),
+(326, NULL, NULL, 'login_failed', NULL, NULL, 'Failed login attempt for alex@terapia.co.uk', '::1', '2025-10-17 13:27:49', NULL, NULL, NULL),
+(327, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 13:28:03', NULL, NULL, NULL),
+(328, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 13:30:57', NULL, NULL, 'logout'),
+(329, 1, 'public', 'password_reset', 'users', 1, 'Password reset via token', '::1', '2025-10-17 13:33:17', NULL, NULL, 'update'),
+(330, NULL, NULL, 'login_failed', NULL, NULL, 'Failed login attempt for alex@terapia.co.uk', '::1', '2025-10-17 13:33:26', NULL, NULL, NULL),
+(331, 1, 'public', 'password_reset', 'users', 1, 'Password reset via token', '::1', '2025-10-17 13:36:41', NULL, NULL, 'update'),
+(332, NULL, NULL, 'login_failed', NULL, NULL, 'Failed login attempt for alex@terapia.co.uk', '::1', '2025-10-17 13:36:49', NULL, NULL, NULL),
+(333, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 14:17:01', NULL, NULL, NULL),
+(334, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 14:19:03', NULL, NULL, 'logout'),
+(335, 1, 'public', 'password_reset', 'users', 1, 'Password reset via token', '::1', '2025-10-17 14:19:39', NULL, NULL, 'update'),
+(336, 1, 'user', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 14:19:47', NULL, NULL, NULL),
+(337, 1, 'user', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 14:22:02', NULL, NULL, 'logout'),
+(338, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 14:40:18', NULL, NULL, NULL),
+(339, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 14:40:47', NULL, NULL, 'logout'),
+(340, 91, 'trainee', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 14:40:53', NULL, NULL, NULL),
+(341, 91, 'trainee', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 14:40:57', NULL, NULL, 'logout'),
+(342, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 14:41:04', NULL, NULL, NULL),
+(343, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 14:41:09', NULL, NULL, 'logout'),
+(344, 1, 'public', 'password_reset', 'staff', 1, 'Password reset via token', '::1', '2025-10-17 14:43:19', NULL, NULL, 'update'),
+(345, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 14:43:27', NULL, NULL, NULL),
+(346, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 14:43:31', NULL, NULL, 'logout'),
+(347, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 14:44:19', NULL, NULL, NULL),
+(348, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 14:44:40', NULL, NULL, 'logout'),
+(349, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 16:54:44', NULL, NULL, NULL),
+(350, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 16:54:56', NULL, NULL, 'logout'),
+(351, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 16:54:59', NULL, NULL, NULL),
+(352, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 17:49:20', NULL, NULL, NULL),
+(353, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 17:50:21', NULL, NULL, 'logout'),
+(354, 13, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-17 17:50:39', NULL, NULL, NULL),
+(355, 13, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-17 17:50:42', NULL, NULL, 'logout'),
+(356, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-20 08:24:57', NULL, NULL, NULL),
+(357, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-20 08:27:48', NULL, NULL, NULL),
+(358, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-20 10:08:57', NULL, NULL, NULL),
+(359, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-20 12:36:09', NULL, NULL, NULL),
+(360, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-20 12:41:01', NULL, NULL, 'logout'),
+(361, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-20 12:46:04', NULL, NULL, NULL),
+(362, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-21 17:18:27', NULL, NULL, NULL),
+(363, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-21 19:41:15', NULL, NULL, NULL),
+(364, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 13:29:52', NULL, NULL, NULL),
+(365, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 14:48:37', NULL, NULL, NULL),
+(366, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 18:15:16', NULL, NULL, NULL),
+(367, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:10:51', NULL, NULL, 'logout'),
+(368, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:11:02', NULL, NULL, NULL),
+(369, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:16:16', NULL, NULL, 'logout'),
+(370, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:19:39', NULL, NULL, NULL),
+(371, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:24:42', NULL, NULL, 'logout'),
+(372, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:25:25', NULL, NULL, NULL),
+(373, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:25:26', NULL, NULL, 'logout'),
+(374, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:25:33', NULL, NULL, NULL),
+(375, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:25:35', NULL, NULL, 'logout'),
+(376, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:29:56', NULL, NULL, NULL),
+(377, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:29:58', NULL, NULL, 'logout'),
+(378, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:30:21', NULL, NULL, NULL),
+(379, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:30:44', NULL, NULL, 'logout'),
+(380, 6, 'trainee', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:31:13', NULL, NULL, NULL),
+(381, 6, 'trainee', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:31:17', NULL, NULL, 'logout'),
+(382, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:31:23', NULL, NULL, NULL),
+(383, 13, 'superuser', 'password_reset', NULL, NULL, 'Manual password reset by admin', '::1', '2025-10-22 20:33:44', NULL, NULL, NULL),
+(384, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:33:48', NULL, NULL, 'logout'),
+(385, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:34:02', NULL, NULL, NULL),
+(386, 1, 'superuser', 'password_reset', NULL, NULL, 'Manual password reset by admin', '::1', '2025-10-22 20:36:34', NULL, NULL, NULL),
+(387, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:36:37', NULL, NULL, 'logout'),
+(388, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:36:50', NULL, NULL, NULL),
+(389, 1, 'superuser', 'password_reset', NULL, NULL, 'Manual password reset by admin', '::1', '2025-10-22 20:39:38', NULL, NULL, NULL),
+(390, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:39:40', NULL, NULL, 'logout'),
+(391, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:39:55', NULL, NULL, NULL),
+(392, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:40:10', NULL, NULL, 'logout'),
+(393, 1, 'superuser', 'login', NULL, NULL, 'Successful login', '::1', '2025-10-22 20:40:25', NULL, NULL, NULL),
+(394, 1, 'superuser', 'system', NULL, NULL, 'User logged out', '::1', '2025-10-22 20:43:13', NULL, NULL, 'logout');
 
 -- --------------------------------------------------------
 
@@ -568,6 +691,17 @@ CREATE TABLE `group_members` (
   `group_id` int(11) NOT NULL,
   `trainee_id` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice_trainees`
+--
+
+CREATE TABLE `invoice_trainees` (
+  `invoice_id` int(11) NOT NULL,
+  `trainee_id` varchar(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -720,7 +854,57 @@ INSERT INTO `login_activity` (`activity_id`, `user_id`, `role`, `email`, `ip_add
 (128, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-10 18:40:40'),
 (129, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-11 12:13:53'),
 (130, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-10-14 14:39:23'),
-(131, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-10-14 14:41:01');
+(131, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-10-14 14:41:01'),
+(132, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-14 17:50:02'),
+(133, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-15 11:22:44'),
+(134, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-15 13:45:07'),
+(135, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-15 13:46:50'),
+(136, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-15 14:16:47'),
+(137, 13, 'superuser', 'pavlos@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-10-15 14:28:50'),
+(138, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-10-15 14:30:46'),
+(139, 13, 'superuser', 'pavlos@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', '2025-10-15 14:35:27'),
+(140, 9, 'staff', 'Admin1@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-10-15 14:45:06'),
+(141, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', '2025-10-15 14:45:14'),
+(142, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-15 15:55:44'),
+(143, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-15 19:06:01'),
+(144, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-16 03:19:55'),
+(145, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-16 10:36:18'),
+(146, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-16 19:51:19'),
+(147, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-17 13:14:19'),
+(148, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-17 13:28:03'),
+(149, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-17 14:17:01'),
+(150, 1, 'user', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', '2025-10-17 14:19:47'),
+(151, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-17 14:40:18'),
+(152, 91, 'trainee', 'trainee7@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-17 14:40:53'),
+(153, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-17 14:41:04'),
+(154, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', '2025-10-17 14:43:27'),
+(155, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-17 14:44:19'),
+(156, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', '2025-10-17 16:54:44'),
+(157, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', '2025-10-17 16:54:59'),
+(158, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-17 17:49:20'),
+(159, 13, 'superuser', 'Pavlos@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-17 17:50:39'),
+(160, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-20 08:24:57'),
+(161, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-20 08:27:48'),
+(162, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-20 10:08:57'),
+(163, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-20 12:36:09'),
+(164, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-20 12:46:04'),
+(165, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-21 17:18:27'),
+(166, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-21 19:41:15'),
+(167, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-22 13:29:52'),
+(168, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-22 14:48:37'),
+(169, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', '2025-10-22 18:15:16'),
+(170, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:11:02'),
+(171, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:19:39'),
+(172, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:25:25'),
+(173, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:25:33'),
+(174, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:29:56'),
+(175, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:30:21'),
+(176, 6, 'trainee', 'trainee5@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:31:13'),
+(177, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:31:23'),
+(178, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:34:02'),
+(179, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:36:50'),
+(180, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:39:55'),
+(181, 1, 'superuser', 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', '2025-10-22 20:40:25');
 
 -- --------------------------------------------------------
 
@@ -773,7 +957,44 @@ INSERT INTO `login_attempts` (`attempt_id`, `username`, `ip_address`, `user_agen
 (28, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-10 17:39:42'),
 (29, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-10 17:39:48'),
 (30, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-10 17:39:52'),
-(31, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-10 17:39:55');
+(31, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-10 17:39:55'),
+(32, 'pavlos@terapia.co.uk', '::1', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36', 0, 'Invalid credentials or archived account', '2025-10-15 13:46:45'),
+(33, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Invalid credentials or archived account', '2025-10-17 13:14:10'),
+(34, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 0, 'Invalid credentials or archived account', '2025-10-17 13:27:42'),
+(35, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 0, 'Invalid credentials or archived account', '2025-10-17 13:27:49'),
+(36, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 0, 'Invalid credentials or archived account', '2025-10-17 13:33:26'),
+(37, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 0, 'Invalid credentials or archived account', '2025-10-17 13:36:49'),
+(38, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-17 14:25:45'),
+(39, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-17 14:32:01'),
+(40, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 14:37:39'),
+(41, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 14:37:47'),
+(42, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 0, 'Invalid credentials', '2025-10-17 14:43:38'),
+(43, 'supervisor5@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Invalid credentials', '2025-10-17 14:44:46'),
+(44, 'supervisor5@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 14:46:27'),
+(45, 'supervisor5@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 14:46:33'),
+(46, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 16:16:40'),
+(47, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 16:16:48'),
+(48, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 16:17:39'),
+(49, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 16:17:47'),
+(50, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Email not found', '2025-10-17 16:23:56'),
+(51, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36 Edg/141.0.0.0', 0, 'Email not found', '2025-10-17 16:28:31'),
+(52, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-17 16:34:17'),
+(53, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-17 16:34:25'),
+(54, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-17 17:12:48'),
+(55, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-17 17:18:08'),
+(56, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-17 17:19:46'),
+(57, 'alex@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-20 08:27:41'),
+(58, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:25:39'),
+(59, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:28:07'),
+(60, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:30:04'),
+(61, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:30:13'),
+(62, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Account locked after 5 failed attempts', '2025-10-22 20:30:50'),
+(63, 'unlock_attempt', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Unlock attempted but no matching user found', '2025-10-22 20:32:52'),
+(64, 'unlock_attempt', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Unlock attempted but no matching user found', '2025-10-22 20:33:31'),
+(65, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:33:54'),
+(66, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:36:42'),
+(67, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:39:47'),
+(68, 'trainee4@terapia.co.uk', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 0, 'Incorrect password', '2025-10-22 20:40:16');
 
 -- --------------------------------------------------------
 
@@ -818,25 +1039,112 @@ INSERT INTO `modules` (`module_id`, `module_name`, `course_id`, `year`) VALUES
 CREATE TABLE `password_resets` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `table_name` varchar(50) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `token` varchar(64) NOT NULL,
+  `requested_at` datetime DEFAULT current_timestamp(),
+  `ip_address` varchar(45) DEFAULT NULL,
   `expires_at` datetime NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `role` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `password_resets`
 --
 
-INSERT INTO `password_resets` (`id`, `user_id`, `email`, `token`, `expires_at`, `created_at`) VALUES
-(1, 1, '', '04224eecf48f123bbbc9bde5aefafcf142760a9ed14b26da38f8983dcc3fcf1e', '2025-10-03 18:14:46', '2025-10-03 15:14:46'),
-(2, 1, '', 'cfd621300be89237daaee5902c0f9e74076ce2c4f4a7f4fed55d2db8c6af0bca', '2025-10-03 18:18:13', '2025-10-03 15:18:13'),
-(5, 1, '', 'cb52d098190973fb74372f1bed21c1c3349464ca3f56a17036728254e87f2e93', '2025-10-03 18:36:35', '2025-10-03 15:36:35'),
-(6, 1, '', '07742637e849fc10f04945dc06d9ccb4aed333b5b0df7f9d8f400905093c9ce5', '2025-10-03 18:36:40', '2025-10-03 15:36:40'),
-(7, 1, '', 'b8415c49e2a57e68a1e50a5cfa7909c641dc434147d877f799ce5594cef048d2', '2025-10-03 18:38:58', '2025-10-03 15:38:58'),
-(8, 1, '', '883f6904c37c0ba406eb4fa608dd2f88d18c86722000125fe0e703d1bbf8622c', '2025-10-03 18:39:02', '2025-10-03 15:39:02'),
-(9, 1, '', 'cc152e3e4fe99112dc125586c0f2467d1da96f57f624db6b4a9fe0ab485080f3', '2025-10-03 18:39:11', '2025-10-03 15:39:11'),
-(11, 1, '', '903d5cd1cfba5c6d8a1e97e750c9cf89f0e65f526f0182800c935a15f5420e65', '2025-10-03 18:47:59', '2025-10-03 15:47:59');
+INSERT INTO `password_resets` (`id`, `user_id`, `table_name`, `email`, `token`, `requested_at`, `ip_address`, `expires_at`, `created_at`, `role`) VALUES
+(1, 1, NULL, '', '04224eecf48f123bbbc9bde5aefafcf142760a9ed14b26da38f8983dcc3fcf1e', '2025-10-17 14:49:07', NULL, '2025-10-03 18:14:46', '2025-10-03 15:14:46', NULL),
+(2, 1, NULL, '', 'cfd621300be89237daaee5902c0f9e74076ce2c4f4a7f4fed55d2db8c6af0bca', '2025-10-17 14:49:07', NULL, '2025-10-03 18:18:13', '2025-10-03 15:18:13', NULL),
+(5, 1, NULL, '', 'cb52d098190973fb74372f1bed21c1c3349464ca3f56a17036728254e87f2e93', '2025-10-17 14:49:07', NULL, '2025-10-03 18:36:35', '2025-10-03 15:36:35', NULL),
+(6, 1, NULL, '', '07742637e849fc10f04945dc06d9ccb4aed333b5b0df7f9d8f400905093c9ce5', '2025-10-17 14:49:07', NULL, '2025-10-03 18:36:40', '2025-10-03 15:36:40', NULL),
+(7, 1, NULL, '', 'b8415c49e2a57e68a1e50a5cfa7909c641dc434147d877f799ce5594cef048d2', '2025-10-17 14:49:07', NULL, '2025-10-03 18:38:58', '2025-10-03 15:38:58', NULL),
+(8, 1, NULL, '', '883f6904c37c0ba406eb4fa608dd2f88d18c86722000125fe0e703d1bbf8622c', '2025-10-17 14:49:07', NULL, '2025-10-03 18:39:02', '2025-10-03 15:39:02', NULL),
+(9, 1, NULL, '', 'cc152e3e4fe99112dc125586c0f2467d1da96f57f624db6b4a9fe0ab485080f3', '2025-10-17 14:49:07', NULL, '2025-10-03 18:39:11', '2025-10-03 15:39:11', NULL),
+(11, 1, NULL, '', '903d5cd1cfba5c6d8a1e97e750c9cf89f0e65f526f0182800c935a15f5420e65', '2025-10-17 14:49:07', NULL, '2025-10-03 18:47:59', '2025-10-03 15:47:59', NULL),
+(14, 1, 'users', 'alex@terapia.co.uk', 'cbf5d267345a6be55ab156ed8622cbfa3ecc6c71d1ec3444f15e6c1193050a5f', '2025-10-17 14:49:07', NULL, '2025-10-17 15:03:12', '2025-10-17 12:03:12', NULL),
+(18, 1, 'users', 'alex@terapia.co.uk', '9cdd501837ab042de5cc9485bef05becde6a2d657fb479ca32962662e2f88069', '2025-10-17 14:49:07', NULL, '2025-10-17 15:31:00', '2025-10-17 12:31:00', NULL),
+(23, 1, NULL, 'alex@terapia.co.uk', '70123eb26de08c77fb22af48bf0f4ba34c0e4e11bb9dc9a6daeb0a00983f886c', '2025-10-17 14:49:33', '::1', '0000-00-00 00:00:00', '2025-10-17 13:49:33', 'superuser'),
+(24, 1, NULL, 'alex@terapia.co.uk', '985b406fd5de808b956971ea24d5afd7e2293aa323d6d1ead5a21f2cb5ac4ddd', '2025-10-17 14:53:20', '::1', '0000-00-00 00:00:00', '2025-10-17 13:53:20', 'superuser'),
+(25, 1, NULL, 'alex@terapia.co.uk', '38279d0fb5d60d1ac8e7d0e059510c4a8a319af3935b1cbd88e5dda4f1c298d5', '2025-10-17 14:53:49', '::1', '0000-00-00 00:00:00', '2025-10-17 13:53:49', 'superuser'),
+(26, 1, NULL, 'alex@terapia.co.uk', '3668fd46d71e6b6a0e236ddecec082eabfa2284b23453d80d1a9798d204d99f6', '2025-10-17 15:25:15', '::1', '0000-00-00 00:00:00', '2025-10-17 14:25:15', 'superuser'),
+(27, 1, NULL, 'alex@terapia.co.uk', '208e3e56064fa71d6eb3b151977a7f92c54340ab67cf487b29dc2fcd3240a668', '2025-10-17 15:26:12', '::1', '0000-00-00 00:00:00', '2025-10-17 14:26:12', 'superuser'),
+(28, 1, NULL, 'alex@terapia.co.uk', 'ee067e141323336960f489c64073e8c961239d7f754cf9ca0d33678a7fc8f172', '2025-10-17 15:32:06', '::1', '0000-00-00 00:00:00', '2025-10-17 14:32:06', 'superuser'),
+(29, 1, NULL, 'alex@terapia.co.uk', 'd0484dc0c42760e0ee3c6a09c4e2a428e24d49c2f066374793a4e4a26e271f72', '2025-10-17 15:34:01', '::1', '0000-00-00 00:00:00', '2025-10-17 14:34:01', 'superuser'),
+(30, 1, NULL, 'alex@terapia.co.uk', 'dd87d5f4dfa7561c05db02987a85c70453ccea018fe5bf55588d7bea2be222da', '2025-10-17 15:35:33', '::1', '0000-00-00 00:00:00', '2025-10-17 14:35:33', 'superuser'),
+(31, 1, NULL, 'alex@terapia.co.uk', '1bddc45670a6e40374925e8373103f8da109fe3f0cdd8b2268af70d364063326', '2025-10-17 15:36:58', '::1', '0000-00-00 00:00:00', '2025-10-17 14:36:58', 'superuser'),
+(32, 1, NULL, 'alex@terapia.co.uk', '616a933011e0204c646d109ca5c84717e1c4c5ea94dcb735c64a2cafa90248e2', '2025-10-17 15:38:50', '::1', '0000-00-00 00:00:00', '2025-10-17 14:38:50', 'superuser'),
+(35, 1, NULL, 'alex@terapia.co.uk', '3acc567788b85a78710935cf05c4f34bbbc03d4b43220e1dc2147b23d832c3ae', '2025-10-17 15:47:27', '::1', '0000-00-00 00:00:00', '2025-10-17 14:47:27', 'superuser'),
+(42, 1, NULL, 'alex@terapia.co.uk', 'manualtesttoken123', '2025-10-17 16:25:55', '127.0.0.1', '2025-10-17 17:25:55', '2025-10-17 15:25:55', 'superuser');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `placement_settings`
+--
+
+CREATE TABLE `placement_settings` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `abbreviation` varchar(20) DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `placement_settings`
+--
+
+INSERT INTO `placement_settings` (`id`, `name`, `abbreviation`, `created_by`, `created_at`) VALUES
+(1, 'Ace Centre for Education', NULL, NULL, '2025-10-20 14:48:05'),
+(2, 'Akiva Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(3, 'All Saints\' Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(4, 'All Saints’ [NW2] C.E Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(5, 'Bourne Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(6, 'Bowmansgreen Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(7, 'Bramhall High School', NULL, NULL, '2025-10-20 14:48:05'),
+(8, 'Challney High School for Boys', NULL, NULL, '2025-10-20 14:48:05'),
+(9, 'Childs Hill Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(10, 'Christ\'s College Finchley', NULL, NULL, '2025-10-20 14:48:05'),
+(11, 'Denbigh High School', NULL, NULL, '2025-10-20 14:48:05'),
+(12, 'Devonshire House Preparatory School', NULL, NULL, '2025-10-20 14:48:05'),
+(13, 'Downsell Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(14, 'Firs Farm Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(15, 'Friern Barnet Secondary School', NULL, NULL, '2025-10-20 14:48:05'),
+(16, 'Fulham Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(17, 'Gurukula Primary School', NULL, NULL, '2025-10-20 14:48:05'),
+(18, 'Hasmonean Boys High School', NULL, NULL, '2025-10-20 14:48:05'),
+(19, 'HCP at St Mary\'s and St John\'s', NULL, NULL, '2025-10-20 14:48:05'),
+(20, 'Heathside Hampstead', NULL, NULL, '2025-10-20 14:48:05'),
+(21, 'Hendon Secondary School', NULL, NULL, '2025-10-20 14:48:05'),
+(22, 'Henley Bank High School', NULL, NULL, '2025-10-20 14:48:05'),
+(23, 'Hertfordshire Children\'s Homes', NULL, NULL, '2025-10-20 14:48:05'),
+(24, 'Icknield High School', NULL, NULL, '2025-10-20 14:48:05'),
+(25, 'Lea Manor High School', NULL, NULL, '2025-10-20 14:48:05'),
+(51, 'Manorside Primary School', NULL, NULL, '2025-10-20 14:48:55'),
+(52, 'Mill Hill County High School', NULL, NULL, '2025-10-20 14:48:55'),
+(53, 'Newfield Primary School', NULL, NULL, '2025-10-20 14:48:55'),
+(54, 'Oasis Academy Putney', NULL, NULL, '2025-10-20 14:48:55'),
+(55, 'Onwards & Upwards', NULL, NULL, '2025-10-20 14:48:55'),
+(56, 'Our Lady of Lourdes Primary', NULL, NULL, '2025-10-20 14:48:55'),
+(57, 'Polegate School', NULL, NULL, '2025-10-20 14:48:55'),
+(58, 'Sauncey Wood Primary School', NULL, NULL, '2025-10-20 14:48:55'),
+(59, 'St Mary’s and St John’s CE School', NULL, NULL, '2025-10-20 14:48:55'),
+(60, 'St Michael’s V.A Junior School', NULL, NULL, '2025-10-20 14:48:55'),
+(61, 'St Theresa\'s', NULL, NULL, '2025-10-20 14:48:55'),
+(62, 'St. Aloysius\' College', NULL, NULL, '2025-10-20 14:48:55'),
+(63, 'St. John\'s C.E Primary School', NULL, NULL, '2025-10-20 14:48:55'),
+(64, 'St. Mary\'s C.E Primary School', NULL, NULL, '2025-10-20 14:48:55'),
+(65, 'St. Peter’s Primary School', NULL, NULL, '2025-10-20 14:48:55'),
+(66, 'Stopsley High School', NULL, NULL, '2025-10-20 14:48:55'),
+(67, 'The Bothy', NULL, NULL, '2025-10-20 14:48:55'),
+(68, 'The Chalk Hills Academy', NULL, NULL, '2025-10-20 14:48:55'),
+(69, 'The New School', NULL, NULL, '2025-10-20 14:48:55'),
+(70, 'The North West London Jewish Day School', NULL, NULL, '2025-10-20 14:48:55'),
+(71, 'The Stockwood Park Academy', NULL, NULL, '2025-10-20 14:48:55'),
+(72, 'Tudor Primary School', NULL, NULL, '2025-10-20 14:48:55'),
+(73, 'Underhill School & Children\'s Service', NULL, NULL, '2025-10-20 14:48:55'),
+(74, 'Wordsworth Primary School', NULL, NULL, '2025-10-20 14:48:55');
 
 -- --------------------------------------------------------
 
@@ -992,82 +1300,44 @@ CREATE TABLE `session_phrase_log` (
 --
 
 INSERT INTO `session_phrase_log` (`id`, `user_id`, `phrase`, `assigned_at`) VALUES
-(1, 1, '“Love is the voice under all silences. E. E. Cummings”,', '2025-09-26 14:04:16'),
-(3, 1, '“Everything can change, but not the language that we carry inside us. Italo Calvino”,', '2025-09-26 14:19:17'),
 (4, 13, '“It was the best of times, it was the worst of times. Charles Dickens”,', '2025-09-26 14:39:19'),
-(5, 1, '“You can’t get away from yourself by moving from one place to another. Ernest Hemingway”,', '2025-09-26 14:39:40'),
-(6, 1, '“We are all apprentices in a craft where no one ever becomes a master. Ernest Hemingway”,', '2025-09-26 15:48:08'),
-(7, 1, '“The old order changeth, yielding place to new. Alfred Tennyson”,', '2025-09-27 13:07:51'),
-(10, 1, '“I shut my eyes and all the world drops dead. Sylvia Plath”,', '2025-09-28 19:38:34'),
-(12, 1, '“Look well into thyself. Marcus Aurelius”,', '2025-09-29 17:26:56'),
-(14, 1, '“Man is the only creature who refuses to be what he is. Albert Camus”,', '2025-09-30 13:00:38'),
-(15, 1, '“A classic is a book that has never finished saying what it has to say. Italo Calvino”,', '2025-09-30 13:23:30'),
-(16, 1, '“The soul unto itself is an imperial friend. Emily Dickinson”,', '2025-09-30 14:25:45'),
-(17, 1, '“The soul becomes dyed with the color of its thoughts. Marcus Aurelius”,', '2025-09-30 16:29:03'),
-(18, 1, '“I care for myself. The more solitary, the more friendless, the more unsustained I am, the more I will respect myself. Charlotte Brontë”,', '2025-10-01 11:27:01'),
-(19, 1, '“The tygers of wrath are wiser than the horses of instruction. William Blake”,', '2025-10-01 13:58:05'),
-(20, 1, '“It takes courage to grow up and become who you really are. E. E. Cummings”,', '2025-10-01 14:01:27'),
-(21, 1, '“Science is the belief in the ignorance of experts. J. B. S. Haldane”,', '2025-10-01 17:53:24'),
 (22, 3, '“From hell’s heart I stab at thee. Herman Melville”,', '2025-10-01 21:13:53'),
-(23, 1, '“The man who does not read good books has no advantage over the man who cannot read them. Mark Twain”,', '2025-10-01 21:22:17'),
 (24, 3, '“It does not matter how slowly you go as long as you do not stop. Confucius”,', '2025-10-01 21:28:50'),
 (25, 13, '“Love must be learned, and learned again. Katherine Anne Porter”,', '2025-10-01 21:30:04'),
-(26, 1, '“Every atom belonging to me as good belongs to you. Walt Whitman”,', '2025-10-01 21:30:31'),
-(27, 1, '“Who looks outside, dreams; who looks inside, awakes. Carl Jung”,', '2025-10-02 07:29:50'),
-(28, 1, '“Success is counted sweetest by those who ne’er succeed. Emily Dickinson”,', '2025-10-02 07:39:13'),
-(30, 1, '“The impediment to action advances action. Marcus Aurelius”,', '2025-10-02 10:04:51'),
-(31, 1, '“I grow old … I grow old … I shall wear the bottoms of my trousers rolled. T. S. Eliot”,', '2025-10-02 10:28:26'),
-(32, 1, '“Happiness is not a goal; it is a by-product. Eleanor Roosevelt”,', '2025-10-02 10:29:26'),
 (33, 15, '“Long is the way and hard, that out of Hell leads up to light. John Milton”,', '2025-10-02 11:05:37'),
-(34, 1, '“Annihilate but space and time. Andrew Marvell”,', '2025-10-02 11:06:52'),
-(36, 1, '“I wandered lonely as a cloud. William Wordsworth”,', '2025-10-02 13:16:52'),
-(38, 1, '“There are people, who the more you do for them, the less they will do for themselves. Jane Austen”,', '2025-10-02 13:27:18'),
-(40, 1, '“The innocent and the beautiful have no enemy but time. W. B. Yeats”,', '2025-10-02 19:00:29'),
-(41, 1, '“A pound of pluck is worth a ton of luck. James A. Garfield”,', '2025-10-02 19:10:20'),
-(42, 1, '“Trailing clouds of glory do we come. William Wordsworth”,', '2025-10-02 19:16:55'),
 (43, 13, '“That is not dead which can eternal lie. H. P. Lovecraft”,', '2025-10-02 19:21:51'),
 (44, 13, '“Exuberance is beauty. William Blake”,', '2025-10-03 12:30:24'),
-(45, 1, '“I grow old … I grow old … I shall wear the bottoms of my trousers rolled. T. S. Eliot”,', '2025-10-03 13:58:38'),
-(46, 1, '“Think where man’s glory most begins and ends. W. B. Yeats”,', '2025-10-03 14:06:31'),
-(47, 1, '“The chief duty of government is to keep the peace. James A. Garfield”,', '2025-10-03 14:21:28'),
-(48, 1, '“Never confuse movement with action. Ernest Hemingway”,', '2025-10-03 14:25:07'),
-(49, 1, '“Faith is taking the first step even when you don’t see the whole staircase. Martin Luther King Jr.”,', '2025-10-03 14:48:06'),
-(50, 1, '“From hell’s heart I stab at thee. Herman Melville”,', '2025-10-03 15:00:47'),
-(51, 1, '“Vanity and pride are different things. Jane Austen”,', '2025-10-03 15:03:02'),
-(52, 1, '“There is nothing more deceptive than an obvious fact. Arthur Conan Doyle”,', '2025-10-03 15:08:10'),
-(53, 1, '“Never confuse movement with action. Ernest Hemingway”,', '2025-10-03 15:10:25'),
-(55, 1, '“Do I dare disturb the universe? T. S. Eliot”,', '2025-10-03 15:43:21'),
-(56, 1, '“Love what you do and do what you love. Ray Bradbury”,', '2025-10-03 16:28:29'),
-(57, 1, '“The soul is born old but grows young. Oscar Wilde”,', '2025-10-03 16:43:35'),
-(58, 1, '“Blessed are the hearts that can bend; they shall never be broken. Albert Camus”,', '2025-10-03 16:55:14'),
-(59, 1, '“I celebrate myself, and sing myself. Walt Whitman”,', '2025-10-03 17:04:47'),
-(60, 1, '“He\'s more myself than I am. Emily Brontë”,', '2025-10-03 17:43:26'),
-(61, 1, '“The most wasted of all days is one without laughter. E. E. Cummings”,', '2025-10-03 18:33:53'),
-(62, 1, '“A man without ethics is a wild beast loosed upon this world. Albert Camus”,', '2025-10-03 19:16:32'),
-(63, 1, '“I am two fools, I know, for loving, and for saying so. John Donne”,', '2025-10-04 19:17:04'),
-(64, 1, '“Courage is grace under pressure. Ernest Hemingway”,', '2025-10-04 22:15:53'),
-(65, 1, '“I too am not a bit tamed. Walt Whitman”,', '2025-10-04 23:02:21'),
-(66, 1, '“I am not what happened to me, I am what I choose to become. Carl Jung”,', '2025-10-05 19:58:48'),
-(67, 1, '“Love is the voice under all silences. E. E. Cummings”,', '2025-10-06 12:00:05'),
-(70, 1, '“The world breaks everyone, and afterward, many are strong at the broken places. Ernest Hemingway”,', '2025-10-06 19:58:15'),
-(71, 1, '“I am not afraid of storms, for I am learning how to sail my ship. Louisa May Alcott”,', '2025-10-07 13:16:21'),
-(72, 1, '“That is not dead which can eternal lie. H. P. Lovecraft”,', '2025-10-07 14:31:06'),
-(73, 1, '“Have a heart that never hardens, and a temper that never tires. Charles Dickens”,', '2025-10-07 14:58:01'),
-(74, 1, '“Desire makes everything blossom. Marcel Proust”,', '2025-10-07 19:24:13'),
-(75, 1, '“No one is useless in this world who lightens the burden of it to anyone else. Charles Dickens”,', '2025-10-08 17:19:15'),
-(76, 1, '“The important thing is not to stop questioning. Albert Einstein”,', '2025-10-09 14:21:28'),
-(77, 1, '“There is no folly of the beast of the earth which is not infinitely outdone by the madness of men. Herman Melville”,', '2025-10-09 19:02:06'),
-(78, 1, '“Love, all alike, no season knows nor clime. John Donne”,', '2025-10-10 16:40:29'),
-(79, 1, '“We live, as we dream—alone. Joseph Conrad”,', '2025-10-10 17:13:07'),
 (80, 20, '“Unhallowed blasphemies were spoken. H. P. Lovecraft”,', '2025-10-10 17:20:30'),
-(81, 1, '“More than kisses, letters mingle souls. John Donne”,', '2025-10-10 17:22:02'),
-(82, 1, '“The only real ending is death. Katherine Anne Porter”,', '2025-10-10 17:28:36'),
-(83, 1, '“Our greatest glory is not in never falling, but in rising every time we fall. Confucius”,', '2025-10-10 17:40:03'),
 (84, 13, '“The end of wisdom is to dream high enough not to lose the dream in the seeking of it. William Faulkner”,', '2025-10-10 17:41:47'),
-(85, 1, '“The only real voyage of discovery consists not in seeking new landscapes but in having new eyes. Marcel Proust”,', '2025-10-10 18:40:40'),
-(86, 1, '“Dwell on the beauty of life. Marcus Aurelius”,', '2025-10-11 12:13:53'),
-(87, 1, '“The most effective way to destroy people is to deny and obliterate their own understanding of their history. George Orwell”,', '2025-10-14 14:39:23'),
-(88, 1, '“Terror made me cruel. Emily Brontë”,', '2025-10-14 14:41:01');
+(93, 13, '“Had we but world enough, and time. Andrew Marvell”,', '2025-10-15 14:28:50'),
+(95, 13, '“From hell’s heart I stab at thee. Herman Melville”,', '2025-10-15 14:35:27'),
+(107, 1, '“Conventionality is not morality. Charlotte Brontë”,', '2025-10-17 14:40:18'),
+(109, 1, '“The real voyage of discovery is not in seeking new landscapes. Marcel Proust”,', '2025-10-17 14:41:04'),
+(110, 1, '“The best way to find out if you can trust somebody is to trust them. Ernest Hemingway”,', '2025-10-17 14:43:27'),
+(111, 1, '“Art is the most beautiful of all lies. Oscar Wilde”,', '2025-10-17 14:44:19'),
+(112, 1, '“Everything can change, but not the language that we carry inside us. Italo Calvino”,', '2025-10-17 16:54:44'),
+(113, 1, '“The eyes are blind. One must look with the heart. Antoine de Saint-Exupéry”,', '2025-10-17 16:54:59'),
+(114, 1, '“Season of mists and mellow fruitfulness. John Keats”,', '2025-10-17 17:49:20'),
+(115, 13, '“I heard a fly buzz when I died. Emily Dickinson”,', '2025-10-17 17:50:39'),
+(116, 1, '“The fear of poetry is the fear of possibility. Muriel Rukeyser”,', '2025-10-20 08:24:57'),
+(117, 1, '“The most important thing is not to stop questioning. J. B. S. Haldane”,', '2025-10-20 10:08:57'),
+(118, 1, '“Angry people are not always wise. Jane Austen”,', '2025-10-20 12:46:04'),
+(119, 1, '“Imagination is more important than knowledge. Albert Einstein”,', '2025-10-21 17:18:27'),
+(120, 1, '“The yellow fog that rubs its back upon the window-panes. T. S. Eliot”,', '2025-10-21 19:41:15'),
+(121, 1, '“I dwell in possibility. Emily Dickinson”,', '2025-10-22 13:29:52'),
+(122, 1, '“The intellect of man is forced to choose. W. B. Yeats”,', '2025-10-22 14:48:37'),
+(123, 1, '“The better part of valour is discretion. William Shakespeare”,', '2025-10-22 18:15:16'),
+(124, 1, '“The worst enemy to creativity is self-doubt. Sylvia Plath”,', '2025-10-22 20:11:02'),
+(125, 1, '“Memory believes before knowing remembers. William Faulkner”,', '2025-10-22 20:19:39'),
+(126, 1, '“The earth laughs in flowers. E. E. Cummings”,', '2025-10-22 20:25:25'),
+(127, 1, '“Life’s most persistent and urgent question is, ‘What are you doing for others?’ Martin Luther King Jr.”,', '2025-10-22 20:25:33'),
+(128, 1, '“Grief does not change you. It reveals you. John Green”,', '2025-10-22 20:29:56'),
+(129, 1, '“You have power over your mind. Marcus Aurelius”,', '2025-10-22 20:30:21'),
+(131, 1, '“Waste no more time arguing what a good man should be. Marcus Aurelius”,', '2025-10-22 20:31:23'),
+(132, 1, '“The eyes are blind. One must look with the heart. Antoine de Saint-Exupéry”,', '2025-10-22 20:34:02'),
+(133, 1, '“Conventionality is not morality. Charlotte Brontë”,', '2025-10-22 20:36:50'),
+(134, 1, '“I never guess. It is a shocking habit. Arthur Conan Doyle”,', '2025-10-22 20:39:55'),
+(135, 1, '“Waste no more time arguing what a good man should be. Marcus Aurelius”,', '2025-10-22 20:40:25');
 
 -- --------------------------------------------------------
 
@@ -1091,24 +1361,27 @@ CREATE TABLE `staff` (
   `dbs_status` varchar(20) DEFAULT NULL,
   `dbs_date` date DEFAULT NULL,
   `dbs_reference` varchar(50) DEFAULT NULL,
-  `is_archived` tinyint(1) DEFAULT 0
+  `is_archived` tinyint(1) DEFAULT 0,
+  `failed_attempts` int(11) DEFAULT 0,
+  `account_locked` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `staff`
 --
 
-INSERT INTO `staff` (`staff_id`, `first_name`, `surname`, `email`, `username`, `password`, `role`, `start_date`, `job_title`, `telephone`, `profile_image`, `dbs_update_service`, `dbs_status`, `dbs_date`, `dbs_reference`, `is_archived`) VALUES
-(1, 'Alex', 'Superuser', 'alex@terapia.co.uk', 'alex', '$2y$10$5.34J6y37YTaXnI/lvuL.OVPmU5ARH6KCZ4JqsXQ433ZXMoPe54Sy', 'superuser', '2025-09-15', 'System Admin', '07000 000001', 'uploads/1757966969_Pingu.jpg', 1, 'Approved', '2025-09-23', '00000000000', 0),
-(2, 'Alex', 'Robertson', 'alexander.r.obertson89@gmail.com', '', '', 'admin', '2025-09-16', 'TSD', NULL, NULL, 0, NULL, NULL, NULL, 1),
-(5, 'Bozena', 'Merrick', 'bozena@terapia.co.uk', 'bozena', '$2y$10$7pKKuOjF/YuUmPKAw7QDre66/bqOgw2F9Mge6UkYMPPS1BeT7qrji', 'superuser', '2000-01-01', 'CEO', '', 'uploads/1758047435_Bozena_Merrick.jpg', 1, 'Approved', '2024-01-01', '10000000000', 0),
-(6, 'Kiran', 'Rehinsi', 'kiran@terapia.co.uk', 'kiran', '$2y$10$bQhG15yHVpdp5l85BFyfXey2bGHelHH8aSRWKHA/OdyuCfjl3uLYS', 'superuser', '2025-09-16', 'Director of Training', '', 'uploads/1759049886_kiran-e1707317712807.jpg', 1, 'Approved', '2025-01-01', '999999999', 0),
-(7, 'Leigh', 'Norburn', 'leigh@terapia.co.uk', 'leigh', '$2y$10$IeNFujan2iD4nqZ40woZUORhL57snxm71SMmcZlB6g7W/fkKY9JDW', 'superuser', '2025-04-01', 'School Services Coordinator', '', 'uploads/1758048095_Leigh_Norburn.jpg', 1, 'Approved', '2025-04-01', '888888888', 0),
-(8, 'Sacha', 'Richardson', 'sacha@terapia.co.uk', 'sacha', '$2y$10$xegz9b6alJ3NVRfbxr2mXuEphf1BFanmPpohpP4cJhrs4pGL6Ljz6', 'superuser', '2020-10-01', 'Clinical Lead', '', 'uploads/1758048323_Sacha_Richardson.jpg', 1, 'Approved', '2025-01-01', '77777777777', 0),
-(9, 'Admin_1', 'Admin_1_TEST', 'Admin1@terapia.co.uk', 'Admin1', '$2y$10$iwbWpF/RJvC61s5lzMAsduoMVr0rYeBM6TxrL7t2tnsQQo0884Rhe', 'staff', '2025-09-22', 'Admin_1_Test', '99900077766', 'uploads/1758660572_Admin_1.jpg', 1, 'Approved', '2025-09-19', '0000003333', 0),
-(10, 'Admin_2', 'Test_Admin_2', 'Admin2@terapia.co.uk', 'Admin2', '$2y$10$IejNgUdQDbTfc8dD8GkJOePF7uVPvObc7QdH112OPc34z0.y5hv9G', 'admin', '2025-09-22', 'Admin_2_Test', '77778889990', '1758555080_Admin_2.webp', 0, 'Expired', '2022-01-01', '888866644', 0),
-(11, 'Emma', 'Beattie', 'emma@terapia.co.uk', 'emma', '$2y$10$52g/4BMZre5rQFRCq02o9e1.j4VqTkw4beaI/PlsfsNsKlXEOVBpi', 'superuser', '2025-10-02', 'Academic Co-ordinator', '020 8201 6101', '', 1, 'Approved', '2025-10-02', '00009996678', 0),
-(12, 'Maggie', 'Docherty', 'maggie@terapia.co.uk', 'maggie', '$2y$10$.iXDkuRY6EGsCwUFInmyF.grfTWXO1E6OexB04JHYAfdiqppOzLam', 'superuser', '2025-10-03', 'PA to CEO and Clinical Director', 'PA to CEO and Clinic', '1759502457_Maggie_Docherty.jpg', 1, 'Approved', '2024-01-01', '11100088866', 0);
+INSERT INTO `staff` (`staff_id`, `first_name`, `surname`, `email`, `username`, `password`, `role`, `start_date`, `job_title`, `telephone`, `profile_image`, `dbs_update_service`, `dbs_status`, `dbs_date`, `dbs_reference`, `is_archived`, `failed_attempts`, `account_locked`) VALUES
+(1, 'Alex', 'Superuser', 'alex@terapia.co.uk', 'alex', '$2y$10$h6uAf3T.hWtRCmgZSpnTbeCcOzucMAmTc0uknduX4Rus04etR0.6C', 'superuser', '2025-09-15', 'System Admin', '07000 000001', 'uploads/1757966969_Pingu.jpg', 1, 'Approved', '2025-09-23', '00000000000', 0, 0, 0),
+(2, 'Alex', 'Robertson', 'alexander.r.obertson89@gmail.com', '', '', 'admin', '2025-09-16', 'TSD', NULL, NULL, 0, NULL, NULL, NULL, 1, 0, 0),
+(5, 'Bozena', 'Merrick', 'bozena@terapia.co.uk', 'bozena', '$2y$10$7pKKuOjF/YuUmPKAw7QDre66/bqOgw2F9Mge6UkYMPPS1BeT7qrji', 'superuser', '2000-01-01', 'CEO', '', 'uploads/1758047435_Bozena_Merrick.jpg', 1, 'Approved', '2024-01-01', '10000000000', 0, 0, 0),
+(6, 'Kiran', 'Rehinsi', 'kiran@terapia.co.uk', 'kiran', '$2y$10$bQhG15yHVpdp5l85BFyfXey2bGHelHH8aSRWKHA/OdyuCfjl3uLYS', 'superuser', '2025-09-16', 'Director of Training', '', 'uploads/1759049886_kiran-e1707317712807.jpg', 1, 'Approved', '2025-01-01', '999999999', 0, 0, 0),
+(7, 'Leigh', 'Norburn', 'leigh@terapia.co.uk', 'leigh', '$2y$10$IeNFujan2iD4nqZ40woZUORhL57snxm71SMmcZlB6g7W/fkKY9JDW', 'superuser', '2025-04-01', 'School Services Coordinator', '', 'uploads/1758048095_Leigh_Norburn.jpg', 1, 'Approved', '2025-04-01', '888888888', 0, 0, 0),
+(8, 'Sacha', 'Richardson', 'sacha@terapia.co.uk', 'sacha', '$2y$10$xegz9b6alJ3NVRfbxr2mXuEphf1BFanmPpohpP4cJhrs4pGL6Ljz6', 'superuser', '2020-10-01', 'Clinical Lead', '', 'uploads/1758048323_Sacha_Richardson.jpg', 1, 'Approved', '2025-01-01', '77777777777', 0, 0, 0),
+(9, 'Admin_1', 'Admin_1_TEST', 'Admin1@terapia.co.uk', 'Admin1', '$2y$10$J3kVVrvb9Ec1DSup1tT85uWVMwKq/jHnJHEyf6rJsBlUXuUBW/c6S', 'staff', '2025-09-22', 'Admin_1_Test', '99900077766', 'uploads/1758660572_Admin_1.jpg', 1, 'Approved', '2025-09-19', '0000003333', 0, 0, 0),
+(10, 'Admin_2', 'Test_Admin_2', 'Admin2@terapia.co.uk', 'Admin2', '$2y$10$IejNgUdQDbTfc8dD8GkJOePF7uVPvObc7QdH112OPc34z0.y5hv9G', 'admin', '2025-09-22', 'Admin_2_Test', '77778889990', '1758555080_Admin_2.webp', 0, 'Expired', '2022-01-01', '888866644', 1, 0, 0),
+(11, 'Emma', 'Beattie', 'emma@terapia.co.uk', 'emma', '$2y$10$52g/4BMZre5rQFRCq02o9e1.j4VqTkw4beaI/PlsfsNsKlXEOVBpi', 'superuser', '2025-10-02', 'Academic Co-ordinator', '020 8201 6101', '', 1, 'Approved', '2025-10-02', '00009996678', 0, 0, 0),
+(12, 'Maggie', 'Docherty', 'maggie@terapia.co.uk', 'maggie', '$2y$10$.iXDkuRY6EGsCwUFInmyF.grfTWXO1E6OexB04JHYAfdiqppOzLam', 'superuser', '2025-10-03', 'PA to CEO and Clinical Director', 'PA to CEO and Clinic', '1759502457_Maggie_Docherty.jpg', 1, 'Approved', '2024-01-01', '11100088866', 0, 0, 0),
+(13, 'Pavlos', 'Bakoulas', 'pavlos@terapia.co.uk', 'pavlos', '$2y$10$2rEGY7StoirsDrQ29pdDYenFrOVXKv41UwVbeyIDESalZ33415jBS', 'superuser', '2025-10-15', 'Facilities Manager', '00000000000', 'uploads/1760535077_Pavlos_B..jpg', 1, 'Approved', '2025-10-15', '00000000000', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1336,6 +1609,8 @@ CREATE TABLE `supervisors` (
   `password` varchar(255) NOT NULL,
   `role` enum('supervisor','staff','admin') NOT NULL DEFAULT 'supervisor',
   `is_archived` tinyint(1) DEFAULT 0,
+  `failed_attempts` int(11) DEFAULT 0,
+  `account_locked` tinyint(1) DEFAULT 0,
   `job_title` varchar(100) DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `telephone` varchar(50) DEFAULT NULL,
@@ -1358,11 +1633,11 @@ CREATE TABLE `supervisors` (
 -- Dumping data for table `supervisors`
 --
 
-INSERT INTO `supervisors` (`supervisor_id`, `first_name`, `surname_prefix`, `surname`, `email`, `password`, `role`, `is_archived`, `job_title`, `start_date`, `telephone`, `address_line1`, `town_city`, `postcode`, `disability_status`, `disability_type`, `profile_image`, `created_at`, `updated_at`, `dbs_status`, `dbs_date`, `dbs_reference`, `dbs_update_service`, `dbs_expiry_date`) VALUES
-(1, 'Jane', NULL, 'Supervisor', 'jane.supervisor@example.com', 'securehashedpassword', 'supervisor', 0, 'Senior Mentor', '2025-09-01', '07700900123', NULL, NULL, NULL, NULL, NULL, '1759235149_Jane_Supervisor.jpg', '2025-09-15 21:37:43', '2025-09-30 12:25:49', 'Pending', NULL, NULL, 0, NULL),
-(3, 'Supervisor_2', NULL, 'TEST Supervisor_2', 'supervisor2@terapia.co.uk', '$2y$10$AdRg5QV3xO9Iw3aQROnZnOC5fL3et8fHLodutBFKVuNoos2UUV64O', 'supervisor', 0, 'Password123$', '2021-06-06', '00000077222', 'Supervisor_2_Test', 'Supervisor_2_Test', 'N3 3QE', '', '', 'uploads/68d142a242d4c_Supervisor_2.jpg', '2025-09-22 12:35:46', '2025-10-02 09:23:38', 'Pending', NULL, NULL, 0, NULL),
-(4, 'Supervisor_4', NULL, 'Supervisor_4_Test', 'supervisor4@terapia.co.uk', '$2y$10$SIflBXbFij69vxEWtvh8wusxqCzHcOUTD41wjpfyjCbDPzADorjri', 'supervisor', 1, 'Module 4 Supervisor', '2025-09-24', '00006664443', 'Supervisor_4_Test', 'Inverness', 'IV4 8HG', 'N/A', 'Sight', 'uploads/68d40d8a8fa16_Supervisor_4.jpeg', '2025-09-24 15:26:02', '2025-09-24 15:26:24', 'Pending', NULL, NULL, 0, NULL),
-(6, 'Supervisor_5', NULL, 'TESTING_SUPERVISOR5', 'supervisor5@terapia.co.uk', '$2y$10$G.apH8xu.yq6Sv.j7/ffG.64vFC2L9VOnbEKFDp.mTFvdLxR4J8ES', 'supervisor', 0, 'Supervisor - Module 3', '2025-10-01', '99977766655', 'Supervisor_5_Test', 'Bristol', 'SW1 9HH', 'N/A', '', '1759336521_Supervisor_5.jpeg', '2025-10-01 16:34:44', '2025-10-02 09:28:58', 'Pending', NULL, NULL, 0, NULL);
+INSERT INTO `supervisors` (`supervisor_id`, `first_name`, `surname_prefix`, `surname`, `email`, `password`, `role`, `is_archived`, `failed_attempts`, `account_locked`, `job_title`, `start_date`, `telephone`, `address_line1`, `town_city`, `postcode`, `disability_status`, `disability_type`, `profile_image`, `created_at`, `updated_at`, `dbs_status`, `dbs_date`, `dbs_reference`, `dbs_update_service`, `dbs_expiry_date`) VALUES
+(1, 'Jane', NULL, 'Supervisor', 'jane.supervisor@example.com', 'securehashedpassword', 'supervisor', 0, 0, 0, 'Senior Mentor', '2025-09-01', '07700900123', NULL, NULL, NULL, NULL, NULL, '1759235149_Jane_Supervisor.jpg', '2025-09-15 21:37:43', '2025-09-30 12:25:49', 'Pending', NULL, NULL, 0, NULL),
+(3, 'Supervisor_2', NULL, 'TEST Supervisor_2', 'supervisor2@terapia.co.uk', '$2y$10$AdRg5QV3xO9Iw3aQROnZnOC5fL3et8fHLodutBFKVuNoos2UUV64O', 'supervisor', 0, 0, 0, 'Password123$', '2021-06-06', '00000077222', 'Supervisor_2_Test', 'Supervisor_2_Test', 'N3 3QE', '', '', 'uploads/68d142a242d4c_Supervisor_2.jpg', '2025-09-22 12:35:46', '2025-10-02 09:23:38', 'Pending', NULL, NULL, 0, NULL),
+(4, 'Supervisor_4', NULL, 'Supervisor_4_Test', 'supervisor4@terapia.co.uk', '$2y$10$SIflBXbFij69vxEWtvh8wusxqCzHcOUTD41wjpfyjCbDPzADorjri', 'supervisor', 1, 0, 0, 'Module 4 Supervisor', '2025-09-24', '00006664443', 'Supervisor_4_Test', 'Inverness', 'IV4 8HG', 'N/A', 'Sight', 'uploads/68d40d8a8fa16_Supervisor_4.jpeg', '2025-09-24 15:26:02', '2025-09-24 15:26:24', 'Pending', NULL, NULL, 0, NULL),
+(6, 'Supervisor_5', NULL, 'TESTING_SUPERVISOR5', 'supervisor5@terapia.co.uk', '$2y$10$OXZBy7kjxBVtKCd358NHSeSIioMJX0SC96A/jn7inQ5PM2IkbM4Uy', 'supervisor', 0, 0, 0, 'Supervisor - Module 3', '2025-10-01', '99977766655', 'Supervisor_5_Test', 'Bristol', 'SW1 9HH', 'N/A', '', '1759336521_Supervisor_5.jpeg', '2025-10-01 16:34:44', '2025-10-17 13:44:39', 'Pending', '0000-00-00', '', 0, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -1382,7 +1657,24 @@ CREATE TABLE `supervisor_courses` (
 --
 
 INSERT INTO `supervisor_courses` (`supervisor_course_id`, `supervisor_id`, `course_id`, `assigned_at`) VALUES
-(4, 6, 2, '2025-10-02 09:28:58');
+(5, 6, 2, '2025-10-17 13:44:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supervisor_invoices`
+--
+
+CREATE TABLE `supervisor_invoices` (
+  `id` int(11) NOT NULL,
+  `supervisor_id` int(11) NOT NULL,
+  `invoice_name` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `submitted_at` datetime DEFAULT current_timestamp(),
+  `status` enum('Pending','Approved','Rejected') DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1402,7 +1694,7 @@ CREATE TABLE `supervisor_modules` (
 --
 
 INSERT INTO `supervisor_modules` (`supervisor_module_id`, `supervisor_id`, `module_id`, `assigned_at`) VALUES
-(4, 6, 16, '2025-10-02 09:28:58');
+(5, 6, 16, '2025-10-17 13:44:39');
 
 -- --------------------------------------------------------
 
@@ -1417,6 +1709,8 @@ CREATE TABLE `trainees` (
   `individual_supervisor` int(11) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `is_archived` tinyint(1) DEFAULT 0,
+  `failed_attempts` int(11) DEFAULT 0,
+  `account_locked` tinyint(1) DEFAULT 0,
   `date_of_birth` date DEFAULT NULL,
   `disability_status` varchar(100) DEFAULT NULL,
   `disability_type` varchar(100) DEFAULT NULL,
@@ -1448,14 +1742,14 @@ CREATE TABLE `trainees` (
 -- Dumping data for table `trainees`
 --
 
-INSERT INTO `trainees` (`trainee_id`, `first_name`, `surname`, `individual_supervisor`, `email`, `is_archived`, `date_of_birth`, `disability_status`, `disability_type`, `town_city`, `postcode`, `password`, `profile_image`, `trainee_code`, `address_line1`, `telephone`, `course_id`, `supervisor_id`, `start_date`, `dbs_expiry_date`, `user_id`, `module_id`, `module_type`, `dbs_status`, `dbs_issue_date`, `dbs_reference_number`, `dbs_update_service`, `mdx_id`, `emergency_contact_name`, `emergency_contact_number`, `personal_email`) VALUES
-('3JFYB8ZR', 'TraineeTEST2', 'SecondTraineeTEST', 1, 'trainee2test@test.com', 1, '2000-01-01', 'No', '', 'Leicester', 'L1165', '$2y$10$63suuRSxEqPvd35rfaW/JuzW5LFFS8DxIeA/CXmBVCHUKMcj/dtNW', NULL, 'TRN-2025-002', 'Trainee 2 Leicester', '99999888888', NULL, 1, '2025-09-22', NULL, 14, NULL, NULL, 'Pending', NULL, NULL, 'No', NULL, NULL, NULL, NULL),
-('50B79496', 'Trainee_8_TEST', 'Trainee_8', NULL, 'trainee8@terapia.co.uk', 0, '1989-12-22', 'No', '', 'Leeds', 'L1 7GG', '$2y$10$E2mfkk8ch6WhmoOKMjiNNebW9Q8conQuHKewiD4gAjb2XQNgiDibq', 'uploads/1760113214_Trainee_8.jpg', NULL, 'Trainee_8_Test', '77766655544', 6, NULL, '2025-10-10', '2027-10-10', 20, 27, NULL, 'Cleared', '2025-10-09', 'JJJYYY88', 'Yes', 'T7GGG', 'Trainee 8 Mum', '777222555433', 'TSETTrainee8@test.com'),
-('6HBZNJPS', 'Trainee_5_TEST', 'Trainee_5', NULL, 'trainee5@terapia.co.uk', 0, '1999-04-04', 'No', '', 'Newcastle', 'NE1 7GG', '$2y$10$F4nmOhYpod88nHtDc0m4aunwH95vbMMfT/OSAUk/6buQ50fT8S/Gm', 'uploads/1759246153_Trainee_5.jpg', 'TRN-2025-005', 'Trainee_5_Test', '00099988877', 1, 6, '2023-01-01', '0000-00-00', NULL, 18, NULL, 'Pending', '0000-00-00', '', 'No', '00005fg', '', '', ''),
-('91A34609', 'Trainee_7_TEST', 'Trainee_7', NULL, 'trainee7@terapia.co.uk', 0, '1999-07-13', 'No', '', 'Totnes', 'EX1 8GG', '$2y$10$ol9a0wtWxze2z9hUfOQVk.S0iqUmc1vsTYitg1QKG9v6XvGosSrBi', 'uploads/1760026688_Trainee_7.jpg', NULL, 'Trainee_7_Test', '00077766655', 5, NULL, '2025-10-09', '2026-01-10', NULL, 22, NULL, 'Cleared', '2024-10-10', '777666444', 'Yes', '', 'Trainee 7 Mum', '00099977766', 'TSETTrainee7@test.com'),
-('BW4Q86I3', 'Trainee_4_Test', 'TEST_Trainee_4', 3, 'trainee4@terapia.co.uk', 0, '2003-08-30', 'Yes', 'Visual', 'York', 'Y1 7FV', '$2y$10$Vp59siIlcNrgQhj1Z/J.T.am/Vv.o/gyaPBI1DIsoa2YFH2wNMWte', 'uploads/1758545252_Trainee_4.jpg', 'TRN-2025-004', 'Trainee_4_Test', '07813334567', 4, 1, '2025-10-07', '0000-00-00', 13, 24, NULL, 'Pending', '0000-00-00', '', 'No', '886655G', 'Trainee 4 Dad', '00099988865', 'trainee4@test.com'),
-('PSJ2UC5H', 'Trainee1', 'Number1', 3, 'testtrainee1@test.com', 0, '1980-12-22', 'No', '', 'Sheffield', 'S11NG', '$2y$10$1rebzsCQi/rcf2r3Ohnlb.3KhL399ot4ZT3L287/6GR6KWBypQ6Li', 'uploads/1758543598_Trainee_1.jpg', 'TRN-2025-001', '49 Test Trainee Road', '01322434432', 1, 3, '2025-08-16', '0000-00-00', 16, 20, NULL, 'Pending', '0000-00-00', '', 'No', 'EGA09ADR', NULL, NULL, NULL),
-('X48L3V6O', 'Trainee_3_Test', 'TEST_Trainee_3', 1, 'trainee3@terapia.co.uk', 0, '2006-10-22', 'No', '', 'Ashford', 'AS67 5FF', '$2y$10$3Gt10unhF4.s.lmSyqmwfef5/PLx2.1a0/Ur60kUhc5CSUlEyGyV2', 'uploads/1758544937_Trainee_3.jpg', 'TRN-2025-003', 'Trainee_3_Test', '11111000000', 5, 1, '2025-10-02', '0000-00-00', 17, 22, NULL, 'Pending', '0000-00-00', '', 'No', 'TEST665544MDX', NULL, NULL, NULL);
+INSERT INTO `trainees` (`trainee_id`, `first_name`, `surname`, `individual_supervisor`, `email`, `is_archived`, `failed_attempts`, `account_locked`, `date_of_birth`, `disability_status`, `disability_type`, `town_city`, `postcode`, `password`, `profile_image`, `trainee_code`, `address_line1`, `telephone`, `course_id`, `supervisor_id`, `start_date`, `dbs_expiry_date`, `user_id`, `module_id`, `module_type`, `dbs_status`, `dbs_issue_date`, `dbs_reference_number`, `dbs_update_service`, `mdx_id`, `emergency_contact_name`, `emergency_contact_number`, `personal_email`) VALUES
+('3JFYB8ZR', 'TraineeTEST2', 'SecondTraineeTEST', 1, 'trainee2test@test.com', 1, 0, 0, '2000-01-01', 'No', '', 'Leicester', 'L1165', '$2y$10$63suuRSxEqPvd35rfaW/JuzW5LFFS8DxIeA/CXmBVCHUKMcj/dtNW', NULL, 'TRN-2025-002', 'Trainee 2 Leicester', '99999888888', NULL, 1, '2025-09-22', NULL, 14, NULL, NULL, 'Pending', NULL, NULL, 'No', NULL, NULL, NULL, NULL),
+('50B79496', 'Trainee_8_TEST', 'Trainee_8', NULL, 'trainee8@terapia.co.uk', 0, 0, 0, '1989-12-22', 'No', '', 'Leeds', 'L1 7GG', '$2y$10$E2mfkk8ch6WhmoOKMjiNNebW9Q8conQuHKewiD4gAjb2XQNgiDibq', 'uploads/1760113214_Trainee_8.jpg', NULL, 'Trainee_8_Test', '77766655544', 6, NULL, '2025-10-10', '2027-10-10', 20, 27, NULL, 'Cleared', '2025-10-09', 'JJJYYY88', 'Yes', 'T7GGG', 'Trainee 8 Mum', '777222555433', 'TSETTrainee8@test.com'),
+('6HBZNJPS', 'Trainee_5_TEST', 'Trainee_5', NULL, 'trainee5@terapia.co.uk', 0, 0, 0, '1999-04-04', 'No', '', 'Newcastle', 'NE1 7GG', '$2y$10$F4nmOhYpod88nHtDc0m4aunwH95vbMMfT/OSAUk/6buQ50fT8S/Gm', 'uploads/1759246153_Trainee_5.jpg', 'TRN-2025-005', 'Trainee_5_Test', '00099988877', 1, 6, '2023-01-01', '0000-00-00', NULL, 18, NULL, 'Pending', '0000-00-00', '', 'No', '00005fg', '', '', ''),
+('91A34609', 'Trainee_7_TEST', 'Trainee_7', NULL, 'trainee7@terapia.co.uk', 0, 0, 0, '1999-07-13', 'No', '', 'Totnes', 'EX1 8GG', '$2y$10$K6i7CsjD2QUrwM.spLMAjeKqJgf60SfAu.2q8mK6IhLWSPaxrr7qy', 'uploads/1760026688_Trainee_7.jpg', NULL, 'Trainee_7_Test', '00077766655', 5, NULL, '2025-10-09', '2026-01-10', NULL, 22, NULL, 'Cleared', '2024-10-10', '777666444', 'Yes', '', 'Trainee 7 Mum', '00099977766', 'TSETTrainee7@test.com'),
+('BW4Q86I3', 'Trainee_4_Test', 'TEST_Trainee_4', 3, 'trainee4@terapia.co.uk', 0, 0, 0, '2003-08-30', 'Yes', 'Visual', 'York', 'Y1 7FV', '$2y$10$nmIYGthtyLxrS40biWgsxeCPG0/2SlVHsgxrT7.Arl.3kli6qeYDm', 'uploads/1758545252_Trainee_4.jpg', 'TRN-2025-004', 'Trainee_4_Test', '07813334567', 4, 1, '2025-10-07', '0000-00-00', 13, 23, NULL, 'Pending', '0000-00-00', '', 'No', '886655G', 'Trainee 4 Dad', '00099988865', 'trainee4@test.com'),
+('PSJ2UC5H', 'Trainee1', 'Number1', 3, 'testtrainee1@test.com', 0, 0, 0, '1980-12-22', 'No', '', 'Sheffield', 'S11NG', '$2y$10$1rebzsCQi/rcf2r3Ohnlb.3KhL399ot4ZT3L287/6GR6KWBypQ6Li', 'uploads/1758543598_Trainee_1.jpg', 'TRN-2025-001', '49 Test Trainee Road', '01322434432', 1, 3, '2025-08-16', '0000-00-00', 16, 20, NULL, 'Pending', '0000-00-00', '', 'No', 'EGA09ADR', NULL, NULL, NULL),
+('X48L3V6O', 'Trainee_3_Test', 'TEST_Trainee_3', 1, 'trainee3@terapia.co.uk', 0, 0, 0, '2006-10-22', 'No', '', 'Ashford', 'AS67 5FF', '$2y$10$3Gt10unhF4.s.lmSyqmwfef5/PLx2.1a0/Ur60kUhc5CSUlEyGyV2', 'uploads/1758544937_Trainee_3.jpg', 'TRN-2025-003', 'Trainee_3_Test', '11111000000', 5, 1, '2025-10-02', '0000-00-00', 17, 22, NULL, 'Pending', '0000-00-00', '', 'No', 'TEST665544MDX', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1599,6 +1893,32 @@ INSERT INTO `trainee_logs` (`log_id`, `trainee_id`, `action_type`, `description`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `trainee_placements`
+--
+
+CREATE TABLE `trainee_placements` (
+  `id` int(11) NOT NULL,
+  `trainee_id` int(11) NOT NULL,
+  `placement_id` int(11) NOT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `assigned_by` int(11) DEFAULT NULL,
+  `assigned_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `trainee_placements`
+--
+
+INSERT INTO `trainee_placements` (`id`, `trainee_id`, `placement_id`, `start_date`, `end_date`, `assigned_by`, `assigned_at`) VALUES
+(1, 0, 2, '2025-10-20', NULL, NULL, '2025-10-20 15:42:28'),
+(3, 50, 6, '2025-08-01', NULL, NULL, '2025-10-20 16:22:10'),
+(4, 0, 12, '2025-10-13', NULL, NULL, '2025-10-20 16:24:14'),
+(5, 0, 61, '2025-10-21', NULL, NULL, '2025-10-20 16:31:59');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `trainee_portfolio`
 --
 
@@ -1702,6 +2022,8 @@ CREATE TABLE `tutors` (
   `profile_image` varchar(255) DEFAULT NULL,
   `dbs_update_service` tinyint(1) DEFAULT 0,
   `is_archived` tinyint(1) DEFAULT 0,
+  `failed_attempts` int(11) DEFAULT 0,
+  `account_locked` tinyint(1) DEFAULT 0,
   `date_of_birth` date DEFAULT NULL,
   `disability_status` varchar(10) DEFAULT NULL,
   `disability_type` varchar(255) DEFAULT NULL,
@@ -1719,11 +2041,11 @@ CREATE TABLE `tutors` (
 -- Dumping data for table `tutors`
 --
 
-INSERT INTO `tutors` (`tutor_id`, `user_id`, `first_name`, `surname`, `email`, `role`, `job_title`, `telephone`, `start_date`, `profile_image`, `dbs_update_service`, `is_archived`, `date_of_birth`, `disability_status`, `disability_type`, `address_line1`, `town_city`, `postcode`, `password`, `dbs_status`, `dbs_date`, `dbs_reference`, `dbs_expiry_date`) VALUES
-(1, 1, 'Tutor1', 'Tutor1TEST', 'tutor_1test@terapia.co.uk', 'tutor', 'TUTOR_TEST1', '00000777777', '2025-09-16', '1758048505_Pingu.jpg', 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', NULL, NULL, NULL),
-(2, 2, 'TUTOR_2', 'TESTING_Tutor2', 'tutor2test@test.com', 'tutor', 'TUTOR_TEST2', '22222288888', '2025-09-19', NULL, 0, 0, '1987-10-22', 'No', '', 'TUTOR_2 TEST', 'Nottingham', 'N12 5GG', '$2y$10$V3g0HBY7Ej5YOkU72NfsZ.YuFtWPrQ8b1MTYI9W7X0abSh5W16DdK', 'Pending', '0000-00-00', '', '0000-00-00'),
-(3, 3, 'TUTOR_3', 'TESTING_Tutor3', 'tutor_3_test@terapia.co.uk', 'tutor', 'TUTOR_TEST3', '99999997777', '2025-09-19', NULL, 0, 0, '1970-01-01', 'No', '', 'TUTOR_3 TEST', 'Bath', 'BA1 5FF', '$2y$10$E.RnsfABvM.4MqSiHIVGv.do2EErSrbo1BFA9cTq4AiQuxs.Wq5sy', 'Pending', NULL, NULL, NULL),
-(15, 19, 'TUTOR_6', 'TESTING_Tutor6', 'tutor_6_test@terapia.co.uk', 'tutor', 'TUTOR_TEST6', '11188877766', '2025-10-01', NULL, 1, 0, '2005-08-04', 'No', '', 'TUTOR_6 TEST', 'Inverness', 'IV7 9GG', '$2y$10$n8bi/yqgKd8ncTdSaQ3NK.5rTVpLCxuzhbHKB29EXjvVNeZHcFmwu', 'Cleared', '2024-01-01', '77766655544', NULL);
+INSERT INTO `tutors` (`tutor_id`, `user_id`, `first_name`, `surname`, `email`, `role`, `job_title`, `telephone`, `start_date`, `profile_image`, `dbs_update_service`, `is_archived`, `failed_attempts`, `account_locked`, `date_of_birth`, `disability_status`, `disability_type`, `address_line1`, `town_city`, `postcode`, `password`, `dbs_status`, `dbs_date`, `dbs_reference`, `dbs_expiry_date`) VALUES
+(1, 1, 'Tutor1', 'Tutor1TEST', 'tutor_1test@terapia.co.uk', 'tutor', 'TUTOR_TEST1', '00000777777', '2025-09-16', '1758048505_Pingu.jpg', 0, 1, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Pending', NULL, NULL, NULL),
+(2, 2, 'TUTOR_2', 'TESTING_Tutor2', 'tutor2test@test.com', 'tutor', 'TUTOR_TEST2', '22222288888', '2025-09-19', NULL, 0, 0, 0, 0, '1987-10-22', 'No', '', 'TUTOR_2 TEST', 'Nottingham', 'N12 5GG', '$2y$10$V3g0HBY7Ej5YOkU72NfsZ.YuFtWPrQ8b1MTYI9W7X0abSh5W16DdK', 'Pending', '0000-00-00', '', '0000-00-00'),
+(3, 3, 'TUTOR_3', 'TESTING_Tutor3', 'tutor_3_test@terapia.co.uk', 'tutor', 'TUTOR_TEST3', '99999997777', '2025-09-19', NULL, 0, 0, 0, 0, '1970-01-01', 'No', '', 'TUTOR_3 TEST', 'Bath', 'BA1 5FF', '$2y$10$E.RnsfABvM.4MqSiHIVGv.do2EErSrbo1BFA9cTq4AiQuxs.Wq5sy', 'Pending', NULL, NULL, NULL),
+(15, 19, 'TUTOR_6', 'TESTING_Tutor6', 'tutor_6_test@terapia.co.uk', 'tutor', 'TUTOR_TEST6', '11188877766', '2025-10-01', NULL, 1, 0, 0, 0, '2005-08-04', 'No', '', 'TUTOR_6 TEST', 'Inverness', 'IV7 9GG', '$2y$10$n8bi/yqgKd8ncTdSaQ3NK.5rTVpLCxuzhbHKB29EXjvVNeZHcFmwu', 'Cleared', '2024-01-01', '77766655544', NULL);
 
 -- --------------------------------------------------------
 
@@ -1815,13 +2137,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `role`, `is_archived`, `email`, `is_active`, `failed_attempts`, `account_locked`) VALUES
-(1, 'alex', '$2y$10$0.TxkAA.j.lOoXttK6DYOOMJOI7HJcFe7ehhz0/1yi/4BBnR1BoF.', '', 0, 'alex@terapia.co.uk', 1, 0, 0),
+(1, 'alex', '$2y$10$f3UMCktaLgf2LWsxdgykBuK2ArOM6U8FYHo3TMq.BxTi3md6vynaS', '', 0, 'alex@terapia1.co.uk.archived.archived', 0, 0, 1),
 (2, 'johndoe', 'securehashedpassword', 'trainee', 0, 'john.doe@example.com', 1, 0, 0),
 (3, '', '', 'tutor', 0, 'tutor_3_test@terapia.co.uk', 1, 0, 0),
 (4, 'tutor_1test@terapia.co.uk', '$2y$10$Rr/2nQ0W.AuAam7kWa3jUeA9pN6BrV5EtKrfLfNFwhXaqe1qnmVPS', 'tutor', 0, NULL, 1, 0, 0),
-(13, 'Trainee_4_Test', '[hashed_password]', 'trainee', 0, 'trainee4@terapia.co.uk', 1, 0, 0),
+(13, 'Trainee_4_Test', '[hashed_password]', 'trainee', 0, 'trainee4@terapia.co.uk', 1, 4, 0),
 (14, 'trainee2test', '$2y$10$63suuRSxEqPvd35rfaW/JuzW5LFFS8DxIeA/CXmBVCH...', 'trainee', 0, 'trainee2test@test.com', 1, 0, 0),
-(15, 'trainee4', '$2y$10$LlVUucJpzh2ITT6Lp2maNOiwaEnVb7yU4zBQnRDGq.e...', 'trainee', 0, 'trainee4@terapia.co.uk', 1, 0, 0),
+(15, 'trainee4', '$2y$10$LlVUucJpzh2ITT6Lp2maNOiwaEnVb7yU4zBQnRDGq.e...', 'trainee', 0, 'trainee4@terapia.co.uk', 1, 4, 1),
 (16, 'testtrainee1', '$2y$10$1rebzsCQi/rcf2r3Ohnlb.3KhL399ot4ZT3L287/6GR...', 'trainee', 0, 'testtrainee1@test.com', 1, 0, 0),
 (17, 'trainee3', '$2y$10$3Gt10unhF4.s.lmSyqmwfef5/PLx2.1a0/Ur60kUhc5...', 'trainee', 0, 'trainee3@terapia.co.uk', 1, 0, 0),
 (19, NULL, '', 'tutor', 0, 'tutor_6_test@terapia.co.uk', 1, 0, 0),
@@ -1878,6 +2200,12 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin_password_resets`
+--
+ALTER TABLE `admin_password_resets`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `assignments`
@@ -1938,6 +2266,13 @@ ALTER TABLE `group_members`
   ADD KEY `trainee_id` (`trainee_id`);
 
 --
+-- Indexes for table `invoice_trainees`
+--
+ALTER TABLE `invoice_trainees`
+  ADD PRIMARY KEY (`invoice_id`,`trainee_id`),
+  ADD KEY `fk_invoice_trainee_trainee` (`trainee_id`);
+
+--
 -- Indexes for table `login_activity`
 --
 ALTER TABLE `login_activity`
@@ -1959,6 +2294,12 @@ ALTER TABLE `modules`
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `placement_settings`
+--
+ALTER TABLE `placement_settings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2095,6 +2436,12 @@ ALTER TABLE `supervisor_courses`
   ADD KEY `course_id` (`course_id`);
 
 --
+-- Indexes for table `supervisor_invoices`
+--
+ALTER TABLE `supervisor_invoices`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `supervisor_modules`
 --
 ALTER TABLE `supervisor_modules`
@@ -2151,6 +2498,14 @@ ALTER TABLE `trainee_course_enrollments`
 --
 ALTER TABLE `trainee_logs`
   ADD PRIMARY KEY (`log_id`);
+
+--
+-- Indexes for table `trainee_placements`
+--
+ALTER TABLE `trainee_placements`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_placement` (`trainee_id`,`placement_id`),
+  ADD KEY `placement_id` (`placement_id`);
 
 --
 -- Indexes for table `trainee_portfolio`
@@ -2248,6 +2603,12 @@ ALTER TABLE `user_calendar_events`
 --
 
 --
+-- AUTO_INCREMENT for table `admin_password_resets`
+--
+ALTER TABLE `admin_password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `assignments`
 --
 ALTER TABLE `assignments`
@@ -2275,7 +2636,7 @@ ALTER TABLE `assignment_types`
 -- AUTO_INCREMENT for table `audit_log`
 --
 ALTER TABLE `audit_log`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=294;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=395;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -2293,13 +2654,13 @@ ALTER TABLE `grades`
 -- AUTO_INCREMENT for table `login_activity`
 --
 ALTER TABLE `login_activity`
-  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `attempt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `attempt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `modules`
@@ -2311,7 +2672,13 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT for table `password_resets`
 --
 ALTER TABLE `password_resets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `placement_settings`
+--
+ALTER TABLE `placement_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `role_audit_log`
@@ -2341,13 +2708,13 @@ ALTER TABLE `safeguarding_terapiapersonnel_records`
 -- AUTO_INCREMENT for table `session_phrase_log`
 --
 ALTER TABLE `session_phrase_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `staff_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `submissions`
@@ -2407,13 +2774,19 @@ ALTER TABLE `supervisors`
 -- AUTO_INCREMENT for table `supervisor_courses`
 --
 ALTER TABLE `supervisor_courses`
-  MODIFY `supervisor_course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `supervisor_course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `supervisor_invoices`
+--
+ALTER TABLE `supervisor_invoices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `supervisor_modules`
 --
 ALTER TABLE `supervisor_modules`
-  MODIFY `supervisor_module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `supervisor_module_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `trainees_history`
@@ -2444,6 +2817,12 @@ ALTER TABLE `trainee_course_enrollments`
 --
 ALTER TABLE `trainee_logs`
   MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `trainee_placements`
+--
+ALTER TABLE `trainee_placements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `trainee_portfolio`
@@ -2528,6 +2907,13 @@ ALTER TABLE `grades`
 --
 ALTER TABLE `group_members`
   ADD CONSTRAINT `group_members_ibfk_1` FOREIGN KEY (`group_id`) REFERENCES `supervision_groups` (`group_id`);
+
+--
+-- Constraints for table `invoice_trainees`
+--
+ALTER TABLE `invoice_trainees`
+  ADD CONSTRAINT `fk_invoice_trainee_invoice` FOREIGN KEY (`invoice_id`) REFERENCES `supervisor_invoices` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_invoice_trainee_trainee` FOREIGN KEY (`trainee_id`) REFERENCES `trainees` (`trainee_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `role_audit_log`
@@ -2650,6 +3036,12 @@ ALTER TABLE `trainee_courses`
 --
 ALTER TABLE `trainee_course_enrollments`
   ADD CONSTRAINT `trainee_course_enrollments_ibfk_2` FOREIGN KEY (`course_id`) REFERENCES `courses` (`course_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `trainee_placements`
+--
+ALTER TABLE `trainee_placements`
+  ADD CONSTRAINT `trainee_placements_ibfk_1` FOREIGN KEY (`placement_id`) REFERENCES `placement_settings` (`id`);
 
 --
 -- Constraints for table `trainee_supervision_groups`
